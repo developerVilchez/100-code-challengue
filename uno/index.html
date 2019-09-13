@@ -14,6 +14,7 @@
   <label for="autor"> Autor:
     <input type="text" name="autor" id="autor" placeholder="ingrese autor">
   </label>
+  <button id="add-book">Agregar</button>
 <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
 <script>
@@ -31,6 +32,24 @@
   firebase.initializeApp(firebaseConfig);
 </script>
 <script>
+
+  const refBooks = firebase.database().ref('books');
+  const buttonAddBook = document.getElementById('add-book');  
+  const inputTitulo = document.getElementById('titulo');
+  const inputAutor = document.getElementById('autor');
+  buttonAddBook.addEventListener('click', () => {
+    const newRef = refBooks.push();
+    console.log(newRef.key.toString())
+    newRef.set({
+      id : newRef.key.toString(),
+      titulo : inputTitulo.value,
+      autor : inputAutor.value
+    })
+    inputTitulo.value = '';
+    inputAutor.value = '';
+  })
+</script>
+<!-- <script>
   /* Referencias
      la referencia es una api de la forma https://<DATABASE_NAME>.firebaseio.com/users/ada.
      // The key of a root reference is null
@@ -57,6 +76,6 @@ refBooks.push().set({
   autor : 'Jeremias Gamboa'
 })
 
-</script>
+</script> -->
 </body>
 </html>
