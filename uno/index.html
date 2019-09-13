@@ -8,8 +8,38 @@
 </head>
 <body>
   <h1>Hola mundo</h1>
-  <label for="autor">Autor</label>
-  <input type="text" name="autor" id="xxx" placeholder="ingrese autor">
-  <script></script>
+  <label for="titulo">Titulo del libro :
+    <input type="text" name="titulo" id="titulo" placeholder="ingrese titulo">
+  </label>
+  <label for="autor"> Autor:
+    <input type="text" name="autor" id="autor" placeholder="ingrese autor">
+  </label>
+<script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyC9nf5lTAkqqcHYhtq2mAzAsRdn7Rw4ySU",
+    authDomain: "my-not-so-awesome-proyect.firebaseapp.com",
+    databaseURL: "https://my-not-so-awesome-proyect.firebaseio.com",
+    projectId: "my-not-so-awesome-proyect",
+    storageBucket: "",
+    messagingSenderId: "674941339443",
+    appId: "1:674941339443:web:a8ff7b0200887b07e8e046"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script>
+  /* Referencias
+     la referencia es una api de la forma https://<DATABASE_NAME>.firebaseio.com/users/ada.
+     // The key of a root reference is null
+var rootRef = firebase.database().ref();
+var key = rootRef.key;  // key === null
+  */
+  
+
+
+</script>
 </body>
 </html>
