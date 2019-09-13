@@ -13,3 +13,7 @@ Red Social para escritores, poetas y gente culta!
 ## Crud con las referencias de Firebase
 
 Cuando guardar el código en tu editor de texto se guarda automaticamente en la bse de daos de firebase y luego con cada reload. En realidad cualquier cambio en cualquier archivo hará que los métodos de firebase se vayan disparando.
+
+### Funcionalidades
+
+- Al momento de agragar un libro quiero que se liste en la pantalla, ahora tengo que averiguar como traer los datos de la base de datos.
