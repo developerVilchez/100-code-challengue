@@ -37,12 +37,15 @@
   const buttonAddBook = document.getElementById('add-book');  
   const inputTitulo = document.getElementById('titulo');
   const inputAutor = document.getElementById('autor');
+  const addReference = (rootReef, obj) => {
+    const newRef = rootReef.push();
+    obj.id = newRef.key.toString();
+    newRef.set(obj)
+  }
+
   buttonAddBook.addEventListener('click', () => {
-    const newRef = refBooks.push();
-    console.log(newRef.key.toString())
-    newRef.set({
-      id : newRef.key.toString(),
-      titulo : inputTitulo.value,
+    addReference(refBooks, {
+      titulo: inputTitulo.value,
       autor : inputAutor.value
     })
     inputTitulo.value = '';
