@@ -52,7 +52,10 @@ console.log(refBooks.key);
 console.log(refBooks.child('book/users').key);
 console.log(refBooks.child('book/users').parent.key)
 console.log(refBooks.parent.key)
-
+refBooks.push().set({
+  titulo : 'Contarlo todo',
+  autor : 'Jeremias Gamboa'
+})
 
 </script>
 </body>
