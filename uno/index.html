@@ -37,11 +37,17 @@
   const buttonAddBook = document.getElementById('add-book');  
   const inputTitulo = document.getElementById('titulo');
   const inputAutor = document.getElementById('autor');
-  
+
   const addReference = (rootReef, obj) => {
     const newRef = rootReef.push();
     obj.id = newRef.key.toString();
     newRef.set(obj)
+  }
+
+  const getDataFromReference = (rootReef, getData) => {
+    rootReef.on('value', (snapshot) => {
+      getData(snapshot.val());
+    })
   }
 
   buttonAddBook.addEventListener('click', () => {
@@ -51,6 +57,10 @@
     })
     inputTitulo.value = '';
     inputAutor.value = '';
+
+    getDataFromReference(refBooks, (data) => {
+      console.log(data);
+    })
   })
 </script>
 <!-- <script>
