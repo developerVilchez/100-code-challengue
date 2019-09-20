@@ -19,7 +19,7 @@
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
 <script>
   // Your web app's Firebase configuration
-  console.log('inicio');
+  console.log('inicio de config firebase');
   const firebaseConfig = {
     apiKey: "AIzaSyC9nf5lTAkqqcHYhtq2mAzAsRdn7Rw4ySU",
     authDomain: "my-not-so-awesome-proyect.firebaseapp.com",
@@ -31,80 +31,59 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  console.log('dos');
+  console.log('dos fin de config');
 </script>
 <script>
-  console.log('tres');
+  console.log('tres declaración de variables');
   const refBooks = firebase.database().ref('books');
   const buttonAddBook = document.getElementById('add-book');  
   const inputTitulo = document.getElementById('titulo');
   const inputAutor = document.getElementById('autor');
 
-  console.log('cuatro');
+  console.log('cuatro declaración de la función addReference');
   const addReference = (rootReef, obj) => {
     const newRef = rootReef.push();
     obj.id = newRef.key.toString();
     newRef.set(obj)
   }
 
-console.log('cinco')
-  buttonAddBook.addEventListener('click', () => {
-    addReference(refBooks, {
-      titulo: inputTitulo.value,
-      autor : inputAutor.value
-    })
-    inputTitulo.value = '';
-    inputAutor.value = '';
-    console.log('seis');
-    console.log(getData(refBooks)); 
-  })
-</script>
-<script>
-/* Once está promisificado
- firebase.database().ref('books').once("value")
-  .then(function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-      // key will be "ada" the first time and "alan" the second time
-      var key = childSnapshot.key;
-      // childData will be the actual contents of the child
-      var childData = childSnapshot.val();
-  });
-});
-*/
-</script>
-<script>
-// Como callbacks está el on
-console.log('siete');
-const getData = (ref) => {
-  const arr = [];
-  ref.on('value', (data) => {
+
+  console.log('cinco declaracion de funcion getdata');
+ const getData = (ref, cb) => {
+   ref.on('value', (data) => {
+    const arr = [];
     data.forEach((ele)=>{
       arr.push(ele.val());
     })
-    console.log(arr);
+     cb(arr);
   })
   
 }
 
-console.log(getData(refBooks));
-/* refBooks.on('value', function(snapshot) {
-  console.log('ocho');
-  console.log(snapshot.val());
-  console.log(snapshot.numChildren());
-  snapshot.forEach((ele)=>{
-    console.log(ele.val().id);
-    console.log(ele.key);
+console.log('seis asociar el evento al boton');
+
+  buttonAddBook.addEventListener('click', () => {
+
+    console.log('siete invoca funcion addReference')
+    addReference(refBooks, {
+      titulo: inputTitulo.value,
+      autor : inputAutor.value
+    })
+
+    inputTitulo.value = '';
+    inputAutor.value = '';
+    console.log('ocho limpie inputs');
+   //  console.log(getData(refBooks)); 
+
+   console.log('fin del scope del evento click');
   })
-}); */
-console.log('fin')
-</script>
-<script>
-/* refBooks.on("value")
-  .then(function(snapshot) {
-    var a = snapshot.hasChildren(); // true
-    var b = snapshot.child("name").hasChildren(); // true
-    var c = snapshot.child("name/first").hasChildren(); // false
-  }); */
+
+  console.log('nueve invoca getData')
+   //console.log(getData(refBooks)) // linea 39
+   getData(refBooks, (data) => {
+    console.log(data);
+   })
+
 </script>
 </body>
 </html>

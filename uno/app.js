@@ -25,3 +25,39 @@
    autor : 'Jeremias Gamboa'
  })
   */
+
+ <script>
+ /* Once está promisificado
+  firebase.database().ref('books').once("value")
+   .then(function(snapshot) {
+     snapshot.forEach(function(childSnapshot) {
+       // key will be "ada" the first time and "alan" the second time
+       var key = childSnapshot.key;
+       // childData will be the actual contents of the child
+       var childData = childSnapshot.val();
+   });
+ });
+ */
+ </script>
+ <script>
+ // Como callbacks está el on
+ 
+ /* refBooks.on('value', function(snapshot) {
+   console.log('ocho');
+   console.log(snapshot.val());
+   console.log(snapshot.numChildren());
+   snapshot.forEach((ele)=>{
+     console.log(ele.val().id);
+     console.log(ele.key);
+   })
+ }); */
+ console.log('fin')
+ </script>
+ <script>
+ /* refBooks.on("value")
+   .then(function(snapshot) {
+     var a = snapshot.hasChildren(); // true
+     var b = snapshot.child("name").hasChildren(); // true
+     var c = snapshot.child("name/first").hasChildren(); // false
+   }); */
+ </script>
