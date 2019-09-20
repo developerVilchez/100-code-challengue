@@ -56,6 +56,7 @@ console.log('cinco')
     inputTitulo.value = '';
     inputAutor.value = '';
     console.log('seis');
+    console.log(getData(refBooks)); 
   })
 </script>
 <script>
@@ -74,7 +75,19 @@ console.log('cinco')
 <script>
 // Como callbacks está el on
 console.log('siete');
-refBooks.on('value', function(snapshot) {
+const getData = (ref) => {
+  const arr = [];
+  ref.on('value', (data) => {
+    data.forEach((ele)=>{
+      arr.push(ele.val());
+    })
+    console.log(arr);
+  })
+  
+}
+
+console.log(getData(refBooks));
+/* refBooks.on('value', function(snapshot) {
   console.log('ocho');
   console.log(snapshot.val());
   console.log(snapshot.numChildren());
@@ -82,7 +95,7 @@ refBooks.on('value', function(snapshot) {
     console.log(ele.val().id);
     console.log(ele.key);
   })
-});
+}); */
 console.log('fin')
 </script>
 <script>
