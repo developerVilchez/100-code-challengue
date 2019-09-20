@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>findPairForSum</title>
+</head>
+<body>
+    <h1>findPairForSum</h1>
+  <script>
+   const findPairForSum = (arr, number) => {
+    for(let i = 0; i < arr.length; i++){
+      //console.log(i)
+      for(let j = 1; j < arr.length; j++ ){
+        console.log(i,j)
+      }
+    }
+   } 
+
+  /*  const findPairForSum1 = (arr, number) => {
+    for(let i = 0; i < arr.length; i++){
+      console.log(i)
+      for(let j = 0; j < arr.length; j++ ){
+        console.log(j)
+      }
+    } 
+   } */
+
+
+  const pair = findPairForSum([3, 34, 4, 12, 5, 2], 9);
+  console.log(pair); // --> [4, 5]
+  </script>
+</body>
+</html>
