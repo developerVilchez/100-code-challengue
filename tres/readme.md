@@ -15,6 +15,7 @@ Después de buscar encontré una solución agradable basado en flash y una libre
 
 After some searching I found a fancy solution based on Flash and this JavaScript library called MooTools. MooTools had this cool $ function to select DOM elements and came with modules like progress bars and Ajax requests. A few weeks later I discovered jQuery and I was blown away.
 
-Ya no se trata de una manipulación del DOM a través de métodos verbose 
+No más
+
 
 [https://itnext.io/using-the-dom-like-a-pro-163a6c552eba](DOM LIKE A PRO)
